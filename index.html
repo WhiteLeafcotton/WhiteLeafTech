@@ -10,7 +10,7 @@
             font-family: 'Didot', serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;  /* Black background */
+            background-color: #ffffff;  /* White background */
             color: #2C3E50;
             overflow-x: hidden;
         }
@@ -58,11 +58,11 @@
             text-align: center;
         }
 
-        /* Card with Neon Glass Effect */
+        /* Card with Frosted Glass Effect */
         .card {
             width: 1050px;  /* 3 times the original width */
             height: 400px;
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glass effect */
             border-radius: 15px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
             margin: 0 auto;
@@ -70,13 +70,13 @@
             text-align: center;
             padding: 20px;
             overflow: hidden;
-            backdrop-filter: blur(12px); /* Frosted glass effect */
-            background: rgba(10, 42, 25, 0.3); /* Dark semi-transparent background */
+            backdrop-filter: blur(15px); /* Frosted glass effect */
+            background: rgba(255, 255, 255, 0.2); /* Slight transparency to simulate frosted glass */
             border: 2px solid rgba(10, 42, 25, 0.8); /* Neon-like glowing border */
             box-shadow: 0 10px 20px rgba(10, 42, 25, 0.5), 0 4px 15px rgba(10, 42, 25, 0.7); /* Neon glow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .card:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 25px rgba(10, 42, 25, 0.8); /* Intensified glow effect on hover */
