@@ -11,10 +11,10 @@
             margin: 0;
             padding: 0;
             background-color: #FFFFFF;
-            color: #2C3E50;  /* Dark grey for text */
+            color: #2C3E50;
         }
         header {
-            background-color: #0A2A19;  /* Darker, deeper green */
+            background-color: #0A2A19;
             color: white;
             text-align: left;
             padding: 40px 20px;
@@ -52,75 +52,45 @@
         }
         section h2 {
             font-size: 2.5em;
-            color: #0A2A19;  /* Darker green */
+            color: #0A2A19;
             margin-bottom: 30px;
         }
         /* Card Container */
-        .cards-container {
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
-            position: relative;
-            width: 100%;
-        }
         .card {
-            min-width: 85%;
-            max-width: 300px;
+            width: 100%;
+            max-width: 350px;
             background-color: #FFFFFF;
             border: 2px solid #0A2A19;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 15px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
             opacity: 0;
             animation: fadeIn 1s forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card img {
             width: 100%;
             height: 150px;
             object-fit: cover;
+            border-radius: 8px;
         }
-        .card-content {
-            padding: 20px;
-            text-align: left;
-        }
-        .card-content h3 {
-            font-size: 1.5em;
+        .card h3 {
+            font-size: 1.8em;
             color: #0A2A19;
-            margin-bottom: 10px;
+            margin-top: 15px;
         }
-        .card-content p {
+        .card p {
             font-size: 1em;
             color: #34495E;
             line-height: 1.5em;
+            margin-top: 10px;
         }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        footer {
-            background-color: #34495E;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 1em;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Request Consultation Button Style */
         .consultation-btn {
             display: inline-block;
-            background-color: #0A2A19;  /* Dark green */
+            background-color: #0A2A19;
             color: white;
             font-size: 1.5em;
             padding: 15px 30px;
@@ -138,18 +108,12 @@
         }
 
         .consultation-btn:hover {
-            background-color: #34495E;  /* Lighter green */
+            background-color: #34495E;
             transform: translateY(-5px);
         }
 
         .consultation-btn:active {
-            background-color: #1F3D2D;  /* Darker green on click */
-        }
-
-        /* Swipe Action */
-        .cards-container {
-            display: flex;
-            transition: transform 0.5s ease;
+            background-color: #1F3D2D;
         }
 
         @keyframes fadeIn {
@@ -176,30 +140,11 @@
 
 <section>
     <h2>Our Services</h2>
-    <div class="cards-container" id="cards-container">
-        <div class="card" id="card1">
-            <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 1">
-            <div class="card-content">
-                <h3>Custom Software Development</h3>
-                <p>We build tailor-made software solutions that streamline your business processes and improve efficiency.</p>
-            </div>
-        </div>
-
-        <div class="card" id="card2">
-            <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 2">
-            <div class="card-content">
-                <h3>Cloud Solutions</h3>
-                <p>Our cloud services provide scalable and secure infrastructure to enhance your business capabilities.</p>
-            </div>
-        </div>
-
-        <div class="card" id="card3">
-            <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 3">
-            <div class="card-content">
-                <h3>IT Consulting</h3>
-                <p>Leverage our expert consultants to help you develop strategic IT plans and drive innovation within your organization.</p>
-            </div>
-        </div>
+    <!-- Single Card -->
+    <div class="card" id="service-card">
+        <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service Image">
+        <h3 id="card-title">Custom Software Development</h3>
+        <p id="card-description">We build tailor-made software solutions that streamline your business processes and improve efficiency.</p>
     </div>
 </section>
 
@@ -211,8 +156,8 @@
 </footer>
 
 <script>
-    let currentCard = 0;
-    const cards = [
+    let currentIndex = 0;
+    const services = [
         {
             title: "Custom Software Development",
             description: "We build tailor-made software solutions that streamline your business processes and improve efficiency.",
@@ -230,25 +175,25 @@
         }
     ];
 
-    const cardsContainer = document.getElementById('cards-container');
-    
-    function updateCardContent() {
-        const card = cards[currentCard];
-        const cardElement = cardsContainer.children[currentCard];
-        const img = cardElement.querySelector('img');
-        const title = cardElement.querySelector('h3');
-        const description = cardElement.querySelector('p');
-        
-        img.src = card.img;
-        title.textContent = card.title;
-        description.textContent = card.description;
-        
-        currentCard = (currentCard + 1) % cards.length;
+    function updateCard() {
+        const cardTitle = document.getElementById("card-title");
+        const cardDescription = document.getElementById("card-description");
+        const cardImage = document.querySelector(".card img");
+
+        // Update the content of the card
+        cardTitle.textContent = services[currentIndex].title;
+        cardDescription.textContent = services[currentIndex].description;
+        cardImage.src = services[currentIndex].img;
+
+        // Increment and loop back to the first service
+        currentIndex = (currentIndex + 1) % services.length;
     }
 
-    // Change card content every 5 seconds
-    setInterval(updateCardContent, 5000);
-    updateCardContent();  // Initial content update
+    // Update card content every 5 seconds
+    setInterval(updateCard, 5000);
+
+    // Initialize with the first service
+    updateCard();
 </script>
 
 </body>
