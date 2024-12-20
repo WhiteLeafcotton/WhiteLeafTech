@@ -16,8 +16,11 @@
         header {
             background-color: #0A2A19;  /* Darker, deeper green */
             color: white;
-            text-align: center;
-            padding: 80px 20px;
+            text-align: left;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         header h1 {
@@ -27,6 +30,21 @@
         header p {
             font-size: 1.2em;
             margin-top: 10px;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         section {
             padding: 60px 20px;
@@ -98,8 +116,13 @@
 <body>
 
 <header>
-    <h1>Welcome to White Leaf Tech Co.</h1>
-    <p>Innovating the Future of Technology</p>
+    <div>
+        <h1>Welcome to White Leaf Tech Co.</h1>
+        <p>Innovating the Future of Technology</p>
+    </div>
+    <div class="logo">
+        <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="White Leaf Tech Logo">
+    </div>
 </header>
 
 <section>
