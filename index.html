@@ -15,29 +15,25 @@
             overflow-x: hidden;
         }
         header {
-            background-color: #FFFFFF; /* White background for header */
-            color: #2C3E50;
+            background-color: rgba(10, 42, 25, 0.6); /* Dark green with opacity */
+            backdrop-filter: blur(10px); /* Matte/frosted glass effect */
+            color: white;
             text-align: left;
             padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            border-bottom: 3px solid #1A3D2B; /* Deeper green for contrast */
         }
         header h1 {
             margin: 0;
             font-size: 3.5em;
-            font-weight: lighter;
+            font-weight: normal;
             text-shadow: 
                 1px 1px 2px #34495E, 
                 0 0 25px #0A2A19, 
-                0 0 5px #34495E, /* Shadow for depth */
-                1px 1px 2px rgba(0, 0, 0, 0.5), /* Dark inner shadow */
-                0 0 10px rgba(0, 0, 0, 0.3); /* Outer glow for a subtle embossed look */
-            color: #f0f0f0; /* Light color for the carved text */
-            background: linear-gradient(135deg, #0A2A19, #2C3E50); /* Gradient for depth */
-            -webkit-background-clip: text; /* Make the gradient affect only the text */
-            color: transparent; /* Make the text itself transparent for the gradient */
+                0 0 5px #34495E; /* Subtle skeuomorphic shadow */
         }
         header p {
             font-size: 1.2em;
@@ -76,6 +72,7 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeIn 1s forwards;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Skeuomorphic shadow effect */
         }
         .card img {
             width: 100%;
@@ -94,8 +91,7 @@
             margin-top: 10px;
             opacity: 0;
             animation: titleFadeIn 1s forwards;
-            font-weight: lighter;
-            text-shadow: 1px 1px 2px #34495E, 0 0 25px #0A2A19, 0 0 5px #34495E;
+            font-weight: normal;
         }
         .card p {
             font-size: 1.2em;
@@ -123,6 +119,7 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Skeuomorphic effect */
         }
 
         .consultation-btn:hover {
