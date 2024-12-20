@@ -12,6 +12,7 @@
             padding: 0;
             background-color: #FFFFFF;
             color: #2C3E50;
+            overflow-x: hidden;
         }
         header {
             background-color: #0A2A19;
@@ -55,39 +56,50 @@
             color: #0A2A19;
             margin-bottom: 30px;
         }
-        /* Card Container */
+        /* Card Styling */
         .card {
-            width: 100%;
-            max-width: 350px;
+            width: 350px;
+            height: 400px;
             background-color: #FFFFFF;
             border: 2px solid #0A2A19;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
             margin: 0 auto;
-            text-align: left;
+            position: relative;
+            text-align: center;
             padding: 20px;
+            overflow: hidden;
             opacity: 0;
             animation: fadeIn 1s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
             border-radius: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            animation: imageAnimation 1.5s ease-out forwards;
         }
         .card h3 {
             font-size: 1.8em;
             color: #0A2A19;
-            margin-top: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            animation: titleFadeIn 1s forwards;
         }
         .card p {
             font-size: 1em;
             color: #34495E;
             line-height: 1.5em;
             margin-top: 10px;
+            opacity: 0;
+            animation: descriptionFadeIn 1s 0.5s forwards;
         }
+
+        /* Button Styling */
         .consultation-btn {
             display: inline-block;
             background-color: #0A2A19;
@@ -124,6 +136,38 @@
                 opacity: 1;
             }
         }
+
+        @keyframes titleFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes descriptionFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageAnimation {
+            0% {
+                transform: translateX(-50%) translateY(100px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -180,10 +224,25 @@
         const cardDescription = document.getElementById("card-description");
         const cardImage = document.querySelector(".card img");
 
+        // Apply animations to fade out the old content before updating
+        cardTitle.style.animation = "none"; // Reset animation
+        cardDescription.style.animation = "none";
+        cardImage.style.animation = "none";
+        
+        // Trigger reflow to restart the animation
+        cardTitle.offsetHeight; // Trigger reflow
+        cardDescription.offsetHeight; // Trigger reflow
+        cardImage.offsetHeight; // Trigger reflow
+
         // Update the content of the card
         cardTitle.textContent = services[currentIndex].title;
         cardDescription.textContent = services[currentIndex].description;
         cardImage.src = services[currentIndex].img;
+
+        // Apply animations for the new content
+        cardTitle.style.animation = "titleFadeIn 1s forwards";
+        cardDescription.style.animation = "descriptionFadeIn 1s 0.5s forwards";
+        cardImage.style.animation = "imageAnimation 1.5s ease-out forwards";
 
         // Increment and loop back to the first service
         currentIndex = (currentIndex + 1) % services.length;
