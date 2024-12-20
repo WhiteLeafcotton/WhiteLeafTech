@@ -55,22 +55,24 @@
             color: #0A2A19;  /* Darker green */
             margin-bottom: 30px;
         }
+        /* Card Container */
         .cards-container {
             display: flex;
-            flex-wrap: wrap;
+            overflow: hidden;
             justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            position: relative;
+            width: 100%;
         }
         .card {
-            width: 300px;
+            min-width: 100%;
             background-color: #FFFFFF;
-            border: 2px solid #0A2A19;  /* Darker green */
+            border: 2px solid #0A2A19;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 15px;
         }
         .card img {
             width: 100%;
@@ -123,7 +125,13 @@
             text-decoration: none;
             border-radius: 30px;
             margin-top: 40px;
+            width: 100%;
+            max-width: 400px;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .consultation-btn:hover {
@@ -135,6 +143,11 @@
             background-color: #1F3D2D;  /* Darker green on click */
         }
 
+        /* Swipe Action */
+        .cards-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
     </style>
 </head>
 <body>
@@ -151,8 +164,8 @@
 
 <section>
     <h2>Our Services</h2>
-    <div class="cards-container">
-        <div class="card" onclick="window.location.href='https://www.example.com/service1'">
+    <div class="cards-container" id="cards-container">
+        <div class="card" id="card1">
             <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 1">
             <div class="card-content">
                 <h3>Custom Software Development</h3>
@@ -160,7 +173,7 @@
             </div>
         </div>
 
-        <div class="card" onclick="window.location.href='https://www.example.com/service2'">
+        <div class="card" id="card2">
             <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 2">
             <div class="card-content">
                 <h3>Cloud Solutions</h3>
@@ -168,7 +181,7 @@
             </div>
         </div>
 
-        <div class="card" onclick="window.location.href='https://www.example.com/service3'">
+        <div class="card" id="card3">
             <img src="https://raw.githubusercontent.com/WhiteLeafcotton/newsit/main/resized_leaf_icon_1024x1024.png" alt="Service 3">
             <div class="card-content">
                 <h3>IT Consulting</h3>
@@ -184,6 +197,44 @@
 <footer>
     <p>&copy; 2024 White Leaf Tech Co. | <a href="mailto:clarkkimberly415@gmail.com">Contact Us</a></p>
 </footer>
+
+<script>
+    let currentCard = 0;
+    const cards = document.querySelectorAll('.card');
+    const cardContainer = document.getElementById('cards-container');
+
+    function showCard(index) {
+        const totalCards = cards.length;
+        if (index < 0) {
+            currentCard = totalCards - 1;
+        } else if (index >= totalCards) {
+            currentCard = 0;
+        } else {
+            currentCard = index;
+        }
+        const offset = -100 * currentCard;
+        cardContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Show the first card
+    showCard(currentCard);
+
+    // Add swipe functionality
+    let startX = 0;
+    cardContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    cardContainer.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX > endX + 50) {
+            showCard(currentCard + 1); // Swipe left
+        } else if (startX < endX - 50) {
+            showCard(currentCard - 1); // Swipe right
+        }
+    });
+
+</script>
 
 </body>
 </html>
