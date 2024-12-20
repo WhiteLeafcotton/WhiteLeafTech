@@ -10,7 +10,7 @@
             font-family: 'Didot', serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;  /* White background */
+            background-color: #FFFFFF;
             color: #2C3E50;
             overflow-x: hidden;
         }
@@ -57,31 +57,22 @@
             padding: 20px 20px 60px 20px;
             text-align: center;
         }
-
-        /* Card with Frosted Glass Effect */
         .card {
             width: 1050px;  /* 3 times the original width */
             height: 400px;
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glass effect */
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background-color: #FFFFFF;
+            border: 2px solid #0A2A19;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
             position: relative;
             text-align: center;
             padding: 20px;
             overflow: hidden;
-            backdrop-filter: blur(15px); /* Frosted glass effect */
-            background: rgba(255, 255, 255, 0.2); /* Slight transparency to simulate frosted glass */
-            border: 2px solid rgba(10, 42, 25, 0.8); /* Neon-like glowing border */
-            box-shadow: 0 10px 20px rgba(10, 42, 25, 0.5), 0 4px 15px rgba(10, 42, 25, 0.7); /* Neon glow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Skeuomorphic shadow effect */
         }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(10, 42, 25, 0.8); /* Intensified glow effect on hover */
-        }
-
         .card img {
             width: 100%;
             height: 180px;
@@ -93,19 +84,17 @@
             transform: translateX(-50%) translateY(100px);
             animation: imageAnimation 1.5s ease-out forwards;
         }
-
         .card h3 {
             font-size: 2.5em;
-            color: #fff;
+            color: #0A2A19;
             margin-top: 10px;
             opacity: 0;
             animation: titleFadeIn 1s forwards;
             font-weight: normal;
         }
-
         .card p {
             font-size: 1.2em;
-            color: #fff;
+            color: #34495E;
             line-height: 1.5em;
             margin-top: 10px;
             opacity: 0;
@@ -180,21 +169,6 @@
                 transform: translateX(-50%) translateY(0);
             }
         }
-
-        @keyframes changeContent {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            50% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -260,8 +234,8 @@
         cardDescription.textContent = services[currentIndex].description;
         cardImage.src = services[currentIndex].img;
 
-        cardTitle.style.animation = "changeContent 1.5s forwards";
-        cardDescription.style.animation = "changeContent 1.5s 0.5s forwards";
+        cardTitle.style.animation = "titleFadeIn 1s forwards";
+        cardDescription.style.animation = "descriptionFadeIn 1s 0.5s forwards";
         cardImage.style.animation = "imageAnimation 1.5s ease-out forwards";
 
         currentIndex = (currentIndex + 1) % services.length;
