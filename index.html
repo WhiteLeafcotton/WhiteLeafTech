@@ -4,33 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White Leaf Tech Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f7f7f7;
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
             color: white;
             text-align: center;
-            padding: 50px;
+            padding: 60px 20px;
         }
-        h1 {
+        header h1 {
             margin: 0;
             font-size: 3em;
+            animation: fadeIn 2s ease-in-out;
         }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
         section {
+            padding: 60px 20px;
             text-align: center;
-            padding: 40px;
         }
+        section h2 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            animation: slideUp 2s ease-out;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content p {
+            font-size: 1.1em;
+            line-height: 1.6em;
+            color: #555;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .contact-form button:hover {
+            background-color: #388E3C;
+        }
+
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -38,15 +109,33 @@
 
 <header>
     <h1>Welcome to White Leaf Tech Co.</h1>
+    <p>Innovating technology for a brighter future</p>
 </header>
 
 <section>
-    <p>We specialize in innovative technology solutions.</p>
+    <h2>What We Do</h2>
+    <div class="content">
+        <p>At White Leaf Tech Co., we specialize in developing cutting-edge solutions tailored to your business needs. From cloud computing and IT consulting to custom software development, we offer a wide range of services to help your business thrive in a technology-driven world.</p>
+        <p>Our team of experts works closely with you to understand your challenges and deliver innovative solutions that drive efficiency, growth, and success. Let us help you harness the power of technology to stay ahead of the competition.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Request a Consultation</h2>
+    <div class="contact-form">
+        <form action="https://formspree.io/f/mnqzbkzb" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="How can we assist you?" required></textarea>
+            <button type="submit">Schedule Consultation</button>
+        </form>
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2024 White Leaf Tech Co.</p>
+    <p>&copy; 2024 White Leaf Tech Co. | <a href="mailto:clarkkimberly415@gmail.com">Contact Us</a></p>
 </footer>
 
 </body>
 </html>
+
