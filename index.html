@@ -180,6 +180,21 @@
                 transform: translateX(-50%) translateY(0);
             }
         }
+
+        @keyframes changeContent {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            50% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -245,8 +260,8 @@
         cardDescription.textContent = services[currentIndex].description;
         cardImage.src = services[currentIndex].img;
 
-        cardTitle.style.animation = "titleFadeIn 1s forwards";
-        cardDescription.style.animation = "descriptionFadeIn 1s 0.5s forwards";
+        cardTitle.style.animation = "changeContent 1.5s forwards";
+        cardDescription.style.animation = "changeContent 1.5s 0.5s forwards";
         cardImage.style.animation = "imageAnimation 1.5s ease-out forwards";
 
         currentIndex = (currentIndex + 1) % services.length;
