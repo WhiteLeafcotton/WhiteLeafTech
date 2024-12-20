@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White Leaf Tech Co.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bookman+Old+Style&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Bookman Old Style', serif;
+            font-family: 'Didot', serif;
             margin: 0;
             padding: 0;
             background-color: #FFFFFF;
@@ -111,6 +111,30 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Request Consultation Button Style */
+        .consultation-btn {
+            display: inline-block;
+            background-color: #0A2A19;  /* Dark green */
+            color: white;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 40px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .consultation-btn:hover {
+            background-color: #34495E;  /* Lighter green */
+            transform: translateY(-5px);
+        }
+
+        .consultation-btn:active {
+            background-color: #1F3D2D;  /* Darker green on click */
+        }
+
     </style>
 </head>
 <body>
@@ -153,6 +177,9 @@
         </div>
     </div>
 </section>
+
+<!-- Consultation Button -->
+<a href="mailto:clarkkimberly415@gmail.com" class="consultation-btn">Request a Consultation</a>
 
 <footer>
     <p>&copy; 2024 White Leaf Tech Co. | <a href="mailto:clarkkimberly415@gmail.com">Contact Us</a></p>
