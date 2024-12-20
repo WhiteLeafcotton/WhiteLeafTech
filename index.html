@@ -4,95 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White Leaf Tech Co.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
+            background-color: #FFFFFF;
+            color: #2C3E50;  /* Dark grey for text */
         }
         header {
-            background: linear-gradient(135deg, #4CAF50, #81C784);
+            background-color: #1C4D31;  /* Hunter Green */
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 3em;
-            animation: fadeIn 2s ease-in-out;
+            font-size: 3.5em;
+            font-family: 'Roboto Slab', serif;
         }
         header p {
             font-size: 1.2em;
             margin-top: 10px;
-            animation: fadeIn 3s ease-in-out;
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
         section {
             padding: 60px 20px;
             text-align: center;
         }
         section h2 {
-            font-size: 2em;
-            color: #4CAF50;
+            font-size: 2.5em;
+            color: #1C4D31;
             margin-bottom: 30px;
-            animation: slideUp 2s ease-out;
+            font-family: 'Roboto Slab', serif;
         }
-        @keyframes slideUp {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
         }
-
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .content p {
-            font-size: 1.1em;
-            line-height: 1.6em;
-            color: #555;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 20px;
+        .card {
+            width: 300px;
+            background-color: #FFFFFF;
+            border: 2px solid #1C4D31;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 4px;
+            overflow: hidden;
             cursor: pointer;
-            font-size: 1.1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-form button:hover {
-            background-color: #388E3C;
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
-
+        .card-content {
+            padding: 20px;
+            text-align: left;
+        }
+        .card-content h3 {
+            font-size: 1.5em;
+            color: #1C4D31;
+            margin-bottom: 10px;
+        }
+        .card-content p {
+            font-size: 1em;
+            color: #34495E;  /* Lighter grey */
+            line-height: 1.5em;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
         footer {
-            background-color: #333;
+            background-color: #34495E;  /* Dark grey */
             color: white;
             text-align: center;
             padding: 20px;
+            font-size: 1em;
         }
 
         footer a {
@@ -109,26 +101,35 @@
 
 <header>
     <h1>Welcome to White Leaf Tech Co.</h1>
-    <p>Innovating technology for a brighter future</p>
+    <p>Innovating the Future of Technology</p>
 </header>
 
 <section>
-    <h2>What We Do</h2>
-    <div class="content">
-        <p>At White Leaf Tech Co., we specialize in developing cutting-edge solutions tailored to your business needs. From cloud computing and IT consulting to custom software development, we offer a wide range of services to help your business thrive in a technology-driven world.</p>
-        <p>Our team of experts works closely with you to understand your challenges and deliver innovative solutions that drive efficiency, growth, and success. Let us help you harness the power of technology to stay ahead of the competition.</p>
-    </div>
-</section>
+    <h2>Our Services</h2>
+    <div class="cards-container">
+        <div class="card" onclick="window.location.href='https://www.example.com/service1'">
+            <img src="https://raw.githubusercontent.com/username/repository-name/main/resized_leaf_icon_1024x1024.png" alt="Service 1">
+            <div class="card-content">
+                <h3>Custom Software Development</h3>
+                <p>We build tailor-made software solutions that streamline your business processes and improve efficiency.</p>
+            </div>
+        </div>
 
-<section>
-    <h2>Request a Consultation</h2>
-    <div class="contact-form">
-        <form action="https://formspree.io/f/mnqzbkzb" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="How can we assist you?" required></textarea>
-            <button type="submit">Schedule Consultation</button>
-        </form>
+        <div class="card" onclick="window.location.href='https://www.example.com/service2'">
+            <img src="https://raw.githubusercontent.com/username/repository-name/main/resized_leaf_icon_1024x1024.png" alt="Service 2">
+            <div class="card-content">
+                <h3>Cloud Solutions</h3>
+                <p>Our cloud services provide scalable and secure infrastructure to enhance your business capabilities.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='https://www.example.com/service3'">
+            <img src="https://raw.githubusercontent.com/username/repository-name/main/resized_leaf_icon_1024x1024.png" alt="Service 3">
+            <div class="card-content">
+                <h3>IT Consulting</h3>
+                <p>Leverage our expert consultants to help you develop strategic IT plans and drive innovation within your organization.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -138,4 +139,3 @@
 
 </body>
 </html>
-
