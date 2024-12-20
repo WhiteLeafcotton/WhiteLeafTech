@@ -6,7 +6,180 @@
     <title>White Leaf Tech Co.</title>
     <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet">
     <style>
-        /* Insert the CSS from above here */
+        body {
+            font-family: 'Didot', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;  /* Black background */
+            color: #2C3E50;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #0A2A19; /* Dark green background */
+            color: white;
+            text-align: left;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #1A3D2B; /* Deeper green for contrast */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: normal;
+            text-shadow: 
+                1px 1px 2px #34495E, 
+                0 0 25px #0A2A19, 
+                0 0 5px #34495E; /* Subtle skeuomorphic shadow */
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        section {
+            padding: 20px 20px 60px 20px;
+            text-align: center;
+        }
+
+        /* Card with Neon Glass Effect */
+        .card {
+            width: 1050px;  /* 3 times the original width */
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(12px); /* Frosted glass effect */
+            background: rgba(10, 42, 25, 0.3); /* Dark semi-transparent background */
+            border: 2px solid rgba(10, 42, 25, 0.8); /* Neon-like glowing border */
+            box-shadow: 0 10px 20px rgba(10, 42, 25, 0.5), 0 4px 15px rgba(10, 42, 25, 0.7); /* Neon glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(10, 42, 25, 0.8); /* Intensified glow effect on hover */
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            animation: imageAnimation 1.5s ease-out forwards;
+        }
+
+        .card h3 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-top: 10px;
+            opacity: 0;
+            animation: titleFadeIn 1s forwards;
+            font-weight: normal;
+        }
+
+        .card p {
+            font-size: 1.2em;
+            color: #fff;
+            line-height: 1.5em;
+            margin-top: 10px;
+            opacity: 0;
+            animation: descriptionFadeIn 1s 0.5s forwards;
+        }
+
+        .consultation-btn {
+            display: inline-block;
+            background-color: rgba(10, 42, 25, 0.6); /* Semi-transparent dark green button */
+            color: white;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 0; /* Square corners */
+            margin-top: 40px;
+            width: 100%;
+            max-width: 400px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Skeuomorphic effect */
+        }
+
+        .consultation-btn:hover {
+            background-color: rgba(10, 42, 25, 0.8); /* Darker hover effect */
+            transform: translateY(-5px);
+        }
+
+        .consultation-btn:active {
+            background-color: rgba(10, 42, 25, 1); /* Darkest effect on click */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes titleFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes descriptionFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageAnimation {
+            0% {
+                transform: translateX(-50%) translateY(100px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
